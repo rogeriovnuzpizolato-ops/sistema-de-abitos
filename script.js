@@ -70,6 +70,11 @@ function renderHabit(habit) {
   habitActions.append(buttonComplete, buttonEdit, buttonDelete);
 
   sectionHabitList.append(habitCard);
+
+  if(habit.concluido == true){
+    habitInfo.classList.add("completed");
+    habitActions.classList.add("hidden");
+  }
 }
 
 // aqui criamos a função para recuperar os habitos salvos na localStorage e trazer de volta para a tela
@@ -77,6 +82,7 @@ function loadHabits() {
   allHabit.forEach((habit) => {
     renderHabit(habit);
   });
+
 }
 
 loadHabits();
@@ -123,15 +129,16 @@ function excludeHabit(id){
 }
 
 function completeHabit(id){
-    const habit = allHabit.find(h => h.id === id);
+  const habit = allHabit.find(h => h.id === id);
 
-    habit.concluido= !habit.concluido;
+  habit.concluido= !habit.concluido;
 
-    localStorage.setItem("habits", JSON.stringify(allHabit));
+  localStorage.setItem("habits", JSON.stringify(allHabit));
 
-    sectionHabitList.innerHTML = "";
+  sectionHabitList.innerHTML = "";
 
-    allHabit.forEach(habit => {
-        renderHabit(habit);
-    });
+  allHabit.forEach(habit => {
+    renderHabit(habit);
+  });
 }
+
