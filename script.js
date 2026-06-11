@@ -73,7 +73,8 @@ function renderHabit(habit) {
 
   if(habit.concluido == true){
     habitInfo.classList.add("completed");
-    habitActions.classList.add("hidden");
+    buttonComplete.classList.add("hidden");
+    buttonEdit.classList.add("hidden");
   }
 }
 
