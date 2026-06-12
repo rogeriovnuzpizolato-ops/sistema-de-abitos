@@ -117,6 +117,7 @@ function editHabit(id) {
     });
 }
 
+// logic of eclude habit 
 function excludeHabit(id){
     allHabit= allHabit.filter(h => h.id !== id);
 
